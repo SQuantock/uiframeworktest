@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+            <script>
+        (function() {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+})();
+</script>
+
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+<!--        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />    
+        
+        <link rel="stylesheet" type="text/css" href="css/main.css"  />
+      <link rel="stylesheet" type="text/css" href="css/appframework.css"  />
+      <link rel="stylesheet" type="text/css" href="css/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="css/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="css/buttons.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/badges.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/grid.css"  />
+
+      <link rel="stylesheet" type="text/css" href="css/android.css"  />
+      <link rel="stylesheet" type="text/css" href="css/win8.css"  />
+      <link rel="stylesheet" type="text/css" href="css/bb.css"  />
+      <link rel="stylesheet" type="text/css" href="css/ios.css"  />
+      <link rel="stylesheet" type="text/css" href="css/ios7.css"  />
+      <link rel="stylesheet" type="text/css" href="css/tizen.css"  />
+        
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />  
+      
+<!--            <script type="text/javascript" charset="utf-8" src="./appframework.js"></script>-->
+            
+                                        <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+                    <script type="text/javascript" charset="utf-8" src="js/jq.appframework.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+
+<!--        <script> $.ui.useInternalRouting = false;  </script>-->
+            
+            
+            
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
+        <script>
+
+            function loadedPanel(what) {
+                //We are going to set the badge as the number of li elements inside the target
+                $.ui.updateBadge("#aflink", $("#af").find("li").length);
+            }
+
+
+            function unloadedPanel(what) {
+                console.log("unloaded " + what.id);
+            }
+
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+                //$.os.desktop=true;
+            }
+
+          //  $.feat.nativeTouchScroll=true;
+          
+        </script>    
+              <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>          
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+        
+          <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  
+
+                <!-- emulate touch events on desktop browsers only -->
+                <script>
+                if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+            }
+            </script>
+            <script type="text/javascript">
+ 
+            $.ui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+            /* This function runs when the body is loaded.*/
+            var init = function () {
+                $.ui.useInternalRouting = false;
+                $.ui.isAjaxApp=true;
+            $.ui.backButtonText = "Back";// We override the back button text to always say "Back"
+            window.setTimeout(function () {
+            $.ui.launch();
+        }, 1500);//We wait 1.5 seconds to call $.ui.launch after DOMContentLoaded fires
+    };
+    document.addEventListener("DOMContentLoaded", init, false);
+ 
+    /* This code is used for Intel native apps */
+//    var onDeviceReady = function () {                    
+//    intel.xdk.device.hideSplashScreen();
+ 
+//};
+//document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+</script>
+
+</head>
+<body>
+    
+    <div id="afui"> <!-- this is the main container div.  This way, you can have only part of your app use UI -->
+<!-- this is the header div at the top -->
+<div id="header">
+<a href="javascript:$.ui.toggleLeftSideMenu()" class="button" style="float:right">Toggle Nav</a>
+</div>
+<div id="content">
+<!-- here is where you can add your panels -->
+    <div title="Welcome" id="main" class="panel" selected="true">This is a basic skeleton UI sample
+  <div ng-view></div>
+    </div>
+
+</div>
+<!-- bottom navbar. Add additional tabs here -->
+<div id="navbar">
+<div class="horzRule"></div>
+<a href="#/view1" id='navbar_home' class='icon home'>view1</a>
+<a href="#/view2" id='navbar_home' class='icon home'>view2</a>
+
+</div>
+
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+  <ul class="menu">
+    <li><a href="#/view1">view1</a></li>
+    <li><a href="#/view2">view2</a></li>
+  </ul>
+
+
+
+
+
+
+</body>
+</html>
